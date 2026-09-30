@@ -5,173 +5,891 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>徐帆 | 个人主页</title>
+  <title>徐帆 | 医学 · 科研 · AI</title>
+
+  <meta name="description"
+        content="徐帆的个人主页，记录医学学习、科研探索、论文阅读与AI学习。">
 
   <style>
+
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, "Microsoft YaHei", sans-serif;
-      background: #f5f7fa;
-      color: #1f2937;
-      line-height: 1.7;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Microsoft YaHei",
+        Arial,
+        sans-serif;
+
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.8;
     }
 
-    header {
-      background: linear-gradient(135deg, #111827, #2563eb);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
 
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
+    /* =====================
+       顶部导航
+    ====================== */
 
     nav {
-      background: white;
-      text-align: center;
-      padding: 15px;
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 16px 8%;
+
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid #e7eaf0;
     }
 
-    nav a {
-      color: #2563eb;
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: #155eef;
+    }
+
+    .nav-links a {
+      margin-left: 25px;
       text-decoration: none;
-      margin: 0 12px;
-      font-weight: bold;
+      color: #344054;
+      font-weight: 600;
+      font-size: 15px;
     }
 
-    .container {
-      max-width: 900px;
+    .nav-links a:hover {
+      color: #155eef;
+    }
+
+
+    /* =====================
+       首页首屏
+    ====================== */
+
+    .hero {
+      min-height: 82vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 80px 20px;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(66,133,244,0.28),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(110,89,255,0.22),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #07162f,
+          #0c2e66,
+          #155eef
+        );
+
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hello {
+      display: inline-block;
+
+      padding: 7px 15px;
+      margin-bottom: 25px;
+
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 50px;
+
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(46px, 9vw, 80px);
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #9cc5ff;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 4vw, 25px);
+      color: #d7e5ff;
+      margin-bottom: 18px;
+    }
+
+    .hero-description {
+      max-width: 700px;
       margin: auto;
-      padding: 40px 20px;
+
+      color: #bcd0ef;
+      font-size: 16px;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 12px 22px;
+      margin: 6px;
+
+      border-radius: 10px;
+
+      text-decoration: none;
+      font-weight: 700;
+
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #155eef;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: white;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+
+    /* =====================
+       通用区域
+    ====================== */
+
+    .section {
+      max-width: 1050px;
+      margin: auto;
+      padding: 85px 22px;
+    }
+
+    .section-title {
+      margin-bottom: 38px;
+    }
+
+    .section-title small {
+      color: #155eef;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-top: 5px;
+    }
+
+    .section-title p {
+      color: #667085;
+      margin-top: 8px;
+    }
+
+
+    /* =====================
+       关于我
+    ====================== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
     }
 
     .card {
       background: white;
-      margin-bottom: 25px;
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      border-radius: 18px;
+      padding: 30px;
+
+      border: 1px solid #e9edf3;
+
+      box-shadow:
+        0 12px 30px rgba(16,24,40,0.05);
     }
 
-    h2 {
-      color: #111827;
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #526071;
+      margin-bottom: 12px;
+    }
+
+    .tags {
+      margin-top: 20px;
     }
 
     .tag {
       display: inline-block;
-      background: #e8f0ff;
-      color: #2563eb;
-      padding: 6px 12px;
-      margin: 5px;
-      border-radius: 20px;
+
+      margin: 4px;
+      padding: 7px 13px;
+
+      border-radius: 30px;
+
+      background: #edf4ff;
+      color: #155eef;
+
       font-size: 14px;
+      font-weight: 600;
     }
+
+
+    /* =====================
+       方向卡片
+    ====================== */
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .research-card {
+      background: white;
+
+      padding: 27px;
+
+      border-radius: 17px;
+      border: 1px solid #e7ebf1;
+
+      transition: 0.25s;
+    }
+
+    .research-card:hover {
+      transform: translateY(-5px);
+      box-shadow:
+        0 15px 35px rgba(16,24,40,0.08);
+    }
+
+    .icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .research-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .research-card p {
+      color: #667085;
+      font-size: 15px;
+    }
+
+
+    /* =====================
+       学习记录
+    ====================== */
+
+    .study-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 20px;
+    }
+
+    .study-item {
+      padding: 25px;
+
+      background: white;
+
+      border-radius: 16px;
+      border: 1px solid #e8ebf0;
+    }
+
+    .study-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .study-item p {
+      color: #667085;
+      font-size: 15px;
+    }
+
+
+    /* =====================
+       时间线
+    ====================== */
+
+    .timeline {
+      border-left: 3px solid #d6e4ff;
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 35px;
+    }
+
+    .timeline-item::before {
+      content: "";
+
+      position: absolute;
+
+      width: 13px;
+      height: 13px;
+
+      border-radius: 50%;
+
+      background: #155eef;
+
+      left: -33px;
+      top: 8px;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 5px;
+    }
+
+    .timeline-item p {
+      color: #667085;
+    }
+
+    .time {
+      color: #155eef;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+
+    /* =====================
+       联系方式
+    ====================== */
+
+    .contact {
+      text-align: center;
+
+      padding: 65px 25px;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #071b3a,
+          #155eef
+        );
+
+      color: white;
+    }
+
+    .contact h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .contact p {
+      color: #d4e2ff;
+      margin-bottom: 25px;
+    }
+
+
+    /* =====================
+       页脚
+    ====================== */
 
     footer {
       text-align: center;
-      padding: 30px;
-      color: #6b7280;
+      padding: 40px 20px;
+
+      color: #8992a3;
+      font-size: 14px;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 15px;
-      background: #2563eb;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
+
+    /* =====================
+       手机适配
+    ====================== */
+
+    @media (max-width: 760px) {
+
+      nav {
+        padding: 14px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+
+      .about-grid,
+      .research-grid,
+      .study-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 65px 20px;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
-<header>
-  <h1>你好，我是徐帆 👋</h1>
-  <p>医学生 · 科研学习者 · AI 探索者</p>
-</header>
+
+<!-- =====================
+     导航栏
+===================== -->
 
 <nav>
-  <a href="#about">关于我</a>
-  <a href="#research">科研</a>
-  <a href="#study">学习</a>
-  <a href="#contact">联系我</a>
+
+  <div class="logo">
+    XUFAN.
+  </div>
+
+  <div class="nav-links">
+
+    <a href="#about">关于我</a>
+
+    <a href="#research">科研</a>
+
+    <a href="#study">学习</a>
+
+    <a href="#journey">成长</a>
+
+    <a href="#contact">联系</a>
+
+  </div>
+
 </nav>
 
-<div class="container">
 
-  <section class="card" id="about">
-    <h2>👨‍🎓 关于我</h2>
 
-    <p>
-      欢迎来到我的个人网站。
+<!-- =====================
+     首页
+===================== -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hello">
+      👋 Welcome to my website
+    </div>
+
+    <h1>
+      你好，我是
+      <span>徐帆</span>
+    </h1>
+
+    <div class="hero-subtitle">
+      医学生 · 科研学习者 · AI 探索者
+    </div>
+
+    <p class="hero-description">
+
+      学习医学，探索科研，也尝试理解人工智能
+      如何改变医学研究与未来医疗。
+
+      <br>
+
+      这里记录我的学习、科研与成长。
+
     </p>
 
+    <div class="hero-buttons">
+
+      <a href="#research"
+         class="btn btn-primary">
+        查看科研探索
+      </a>
+
+      <a href="#about"
+         class="btn btn-secondary">
+        了解我
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================
+     关于我
+===================== -->
+
+<section class="section" id="about">
+
+  <div class="section-title">
+
+    <small>ABOUT ME</small>
+
+    <h2>关于我</h2>
+
     <p>
-      我目前正在学习医学，同时对科研、人工智能、
-      数据分析以及医学研究感兴趣。
+      保持好奇，持续学习，把问题一步一步弄明白。
     </p>
 
+  </div>
+
+
+  <div class="about-grid">
+
+    <div class="card">
+
+      <h3>👨‍⚕️ 你好，我是徐帆</h3>
+
+      <p>
+        我是一名正在学习医学的学生。
+      </p>
+
+      <p>
+        除了医学课程，我也正在接触医学科研、
+        文献阅读、统计学、数据分析和人工智能。
+      </p>
+
+      <p>
+        这个网站不是一份已经完成的简历，
+        而是我的成长记录。
+      </p>
+
+      <p>
+        我希望几年以后回头看时，
+        能清楚地看到自己是怎样从一个科研初学者，
+        一步一步建立起独立学习和研究能力的。
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>🔎 当前关注</h3>
+
+      <div class="tags">
+
+        <span class="tag">医学</span>
+
+        <span class="tag">临床科研</span>
+
+        <span class="tag">文献阅读</span>
+
+        <span class="tag">统计学</span>
+
+        <span class="tag">AI</span>
+
+        <span class="tag">Python</span>
+
+        <span class="tag">数据分析</span>
+
+        <span class="tag">循证医学</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================
+     科研
+===================== -->
+
+<section class="section" id="research">
+
+  <div class="section-title">
+
+    <small>RESEARCH</small>
+
+    <h2>科研探索</h2>
+
     <p>
-      这个网站将记录我的学习过程、科研经历和成长轨迹。
+      目前仍处于学习和积累阶段，
+      这里会逐渐记录真正参与的科研项目与成果。
     </p>
 
-    <span class="tag">医学</span>
-    <span class="tag">科研</span>
-    <span class="tag">AI</span>
-    <span class="tag">数据分析</span>
-  </section>
+  </div>
 
 
-  <section class="card" id="research">
-    <h2>🔬 科研</h2>
+  <div class="research-grid">
+
+
+    <div class="research-card">
+
+      <div class="icon">📄</div>
+
+      <h3>论文精读</h3>
+
+      <p>
+        学习如何拆解研究问题、研究设计、
+        统计方法、图表与最终结论。
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <div class="icon">📊</div>
+
+      <h3>数据分析</h3>
+
+      <p>
+        学习统计学、科研数据处理，
+        并逐步接触 Python 等分析工具。
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <div class="icon">🧠</div>
+
+      <h3>AI × 医学</h3>
+
+      <p>
+        探索人工智能在医学学习、
+        科研与未来临床实践中的可能性。
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================
+     学习
+===================== -->
+
+<section class="section" id="study">
+
+  <div class="section-title">
+
+    <small>LEARNING</small>
+
+    <h2>学习笔记</h2>
 
     <p>
-      这里以后会记录我的科研项目、论文阅读、
-      文献精读以及科研学习笔记。
+      把知识整理出来，
+      本身就是一次更深入的学习。
     </p>
 
+  </div>
+
+
+  <div class="study-grid">
+
+
+    <div class="study-item">
+
+      <h3>🧬 医学基础</h3>
+
+      <p>
+        组织学与胚胎学、生理学、
+        生物化学等课程的核心知识整理。
+      </p>
+
+    </div>
+
+
+    <div class="study-item">
+
+      <h3>📑 文献精读</h3>
+
+      <p>
+        记录医学论文阅读过程，
+        包括研究思路、方法和图表分析。
+      </p>
+
+    </div>
+
+
+    <div class="study-item">
+
+      <h3>📈 科研方法</h3>
+
+      <p>
+        学习研究设计、统计学、
+        数据分析与科研写作。
+      </p>
+
+    </div>
+
+
+    <div class="study-item">
+
+      <h3>🤖 AI 学习</h3>
+
+      <p>
+        记录 Prompt、AI 工具、
+        Python 与医学 AI 的学习过程。
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================
+     成长时间线
+===================== -->
+
+<section class="section" id="journey">
+
+  <div class="section-title">
+
+    <small>JOURNEY</small>
+
+    <h2>成长记录</h2>
+
     <p>
-      当前目标：不断积累科研能力，
-      学习文献阅读、统计学、数据分析和论文写作。
+      网站刚刚开始，这条时间线也才刚刚开始。
     </p>
-  </section>
+
+  </div>
 
 
-  <section class="card" id="study">
-    <h2>📚 学习笔记</h2>
-
-    <p>这里将逐渐整理我的学习资料：</p>
-
-    <ul>
-      <li>🧬 组织学与胚胎学</li>
-      <li>🫀 医学基础课程</li>
-      <li>📄 医学论文精读</li>
-      <li>📊 科研方法与统计学</li>
-      <li>🤖 AI 与医学</li>
-      <li>💻 Python 与数据分析</li>
-    </ul>
-
-  </section>
+  <div class="timeline">
 
 
-  <section class="card">
-    <h2>🚀 我的目标</h2>
+    <div class="timeline-item">
+
+      <span class="time">2026</span>
+
+      <h3>🌱 开始建立个人科研主页</h3>
+
+      <p>
+        使用 GitHub Pages 建立自己的第一个网站，
+        开始系统记录医学学习与科研成长。
+      </p>
+
+    </div>
+
+
+    <div class="timeline-item">
+
+      <span class="time">NEXT</span>
+
+      <h3>🔬 持续积累科研能力</h3>
+
+      <p>
+        文献阅读、科研方法、统计分析、
+        项目实践，一步一步积累。
+      </p>
+
+    </div>
+
+
+    <div class="timeline-item">
+
+      <span class="time">FUTURE</span>
+
+      <h3>🚀 形成自己的研究方向</h3>
+
+      <p>
+        希望未来能够真正参与并完成有价值的医学研究。
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================
+     联系
+===================== -->
+
+<section class="section" id="contact">
+
+  <div class="contact">
+
+    <h2>保持好奇，继续前进。</h2>
 
     <p>
-      在本科阶段不断
+      我的学习和科研旅程才刚刚开始。
+    </p>
+
+    <a
+      href="https://github.com/x4545497-cmyk"
+      class="btn btn-primary"
+      target="_blank">
+
+      GitHub →
+
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<footer>
+
+  © 2026 徐帆
+
+  <br>
+
+  Built with GitHub Pages · Learning in Public
+
+</footer>
+
+
+</body>
+
+</html>
